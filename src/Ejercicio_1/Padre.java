@@ -38,23 +38,24 @@ public class Padre {
         BufferedReader bfMadre;
         String lineaMadre;
 
-        ProcessBuilder pbHijo;
+        //ProcessBuilder pbHijo;
         Process psHijo;
         BufferedReader brHijo;
         String lineaHijo;
         int exit;
 
         // Se imprime la petición de la madre usando configuración UTF-8
-        bfMadre = new BufferedReader(new InputStreamReader(System.in,"UTF-8"));
+        bfMadre = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         while ((lineaMadre = bfMadre.readLine()) != null) {
             System.out.println("Madre: " + lineaMadre);
 
             // Se llama al proceso hijo
-            pbHijo = new ProcessBuilder("java", "Hijo.java", lineaMadre);
-            psHijo = pbHijo.start();
+//            pbHijo = new ProcessBuilder("java", "Hijo.java", lineaMadre);
+//            psHijo = pbHijo.start();
+            psHijo = new ProcessBuilder("java", "Hijo.java", lineaMadre).start();
 
             // Se recoge el mensaje del proceso Hijo usando configuración UTF-8
-            brHijo = new BufferedReader(new InputStreamReader(psHijo.getInputStream(),"UTF-8"));
+            brHijo = new BufferedReader(new InputStreamReader(psHijo.getInputStream(), "UTF-8"));
             // Se espera que el proceso Hijo responda
             System.out.println("(Despertando a Mario)");
             // Se espera a que el proceso Hijo termine
